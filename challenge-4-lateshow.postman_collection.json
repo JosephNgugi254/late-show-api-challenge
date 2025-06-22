@@ -1,0 +1,158 @@
+{
+  "info": {
+    "name": "Late Show API Challenge",
+    "_postman_id": "7f8d3a2b-9c1e-4f7a-b8e6-3c4b5d9e2a1f",
+    "description": "Postman collection for testing the Late Show API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"testuser\", \"password\": \"testpass\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["register"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"testuser\", \"password\": \"testpass\"}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Episodes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/episodes",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["episodes"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Episode by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/episodes/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["episodes", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Episode",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/episodes/2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["episodes", "2"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Guests",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/guests",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["guests"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Appearance",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"rating\": 3, \"guest_id\": 1, \"episode_id\": 1}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/appearances",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["appearances"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "jwt_token",
+      "value": "",
+      "description": "JWT token obtained from /login"
+    }
+  ]
+}
